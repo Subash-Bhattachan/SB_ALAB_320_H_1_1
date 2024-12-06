@@ -3,33 +3,141 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+function HomePage() {
+  return (
 
+    <div
+      style={{
+        width: "300px",
+        height: "493px",
+        border: "2px solid orange",
+        marginRight: "1px",
+        marginLeft: "1px",
+        marginTop: "2px",
+        marginBottom: "9px",
+        // display: "flex",
+        // justifyContent: 'space-between',
+      }}>
+      <Header title="Employee Directory" />
+      <SearchBar />
+      <EmployeeList />
+    </div>
+  );
+}
+
+function EmployeePage() {
+  return (
+
+    <div style={{
+      width: "300px",
+      height: "493px",
+      border: "2px solid brown",
+      marginRight: "1px",
+      marginLeft: "1px",
+      marginTop: "2px",
+      marginBottom: "1px",
+      // display: "flex", // this bring the divs aligning next to one another, so avoiding it here as we want divs stacking on top of one another
+      // justifyContent: 'space-between',
+    }}>
+      <Header title="Employee" />
+      
+    </div>
+  );
+}
+
+function Header( { title } ) {
+  return (
+
+    <div style={{
+      width: "98%",
+      height: "34px",
+      border: "2px solid blue",
+      marginRight: "1px",
+      marginLeft: "1px",
+      marginTop: "2px",
+      marginBottom: "1px",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+
+    }}>
+      <p>{ title }</p>
+    </div>
+  );
+}
+
+function SearchBar() {
+  return (
+
+    <div style={{
+      width: "98%",
+      height: "34px",
+      border: "2px solid green",
+      marginRight: "1px",
+      marginLeft: "1px",
+      marginTop: "2px",
+      marginBottom: "1px",
+
+    }}>
+      Search Bar
+
+    </div>
+  );
+}
+
+function EmployeeList() {
+  return (
+
+    <div style={{
+      width: "98%",
+      height: "405px",
+      border: "2px solid violet",
+      marginRight: "1px",
+      marginLeft: "1px",
+      marginTop: "2px",
+      marginBottom: "1px",
+
+    }}>
+      <EmployeeListItem name="James King" />
+      <EmployeeListItem  name="Julie Taylor" />
+      <EmployeeListItem name="Eugene Lee"/>
+      <EmployeeListItem name="John Williams"/>
+      <EmployeeListItem name="Ray Moore"/>
+      <EmployeeListItem name="Paul Jones"/>
+
+    </div>
+  );
+}
+
+function EmployeeListItem( { name }) {
+  return (
+
+    <div style={{
+      width: "98%",
+      height: "61.5px",
+      border: "2px solid purple",
+      marginRight: "1px",
+      marginLeft: "1px",
+      marginTop: "2px",
+      marginBottom: "1px",
+
+    }}>
+      <p>{ name }</p>
+    </div>
+  );
+}
+
+function App() {
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div style={{ width: "600px", height: "500px", border: "4px solid black", display: "flex", justifyContent: "space-between" }}>
+        <HomePage />
+        <EmployeePage />
+
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+
     </>
-  )
+  );
 }
 
 export default App
